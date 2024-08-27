@@ -4,39 +4,18 @@
     "type": "split",
     "children": [
       {
-        "id": "705d6dfb8311e43e",
+        "id": "ebf1d2b90f714aaa",
         "type": "tabs",
         "children": [
           {
-            "id": "38da68bf4b18c82e",
+            "id": "efac4609f786a946",
             "type": "leaf",
             "state": {
               "type": "empty",
               "state": {}
-            }
-          },
-          {
-            "id": "86ad23e9a8beb9e7",
-            "type": "leaf",
-            "state": {
-              "type": "empty",
-              "state": {}
-            }
-          },
-          {
-            "id": "1796876fd8e3900b",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "README.md",
-                "mode": "source",
-                "source": false
-              }
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
@@ -102,7 +81,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "README.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -119,7 +97,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "README.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -141,9 +118,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "README.md"
-              }
+              "state": {}
             }
           }
         ]
@@ -166,10 +141,11 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "1796876fd8e3900b",
+  "active": "efac4609f786a946",
   "lastOpenFiles": [
-    "01 - Virtualization/02. Processes.md",
     "README.md",
+    "01. Classes and Objects.md",
+    "01 - Virtualization/02. Processes.md",
     "export/01-01. Introduction/plugin/chalkboard/img/whiteboard.png",
     "export/01-01. Introduction/plugin/chalkboard/img/chalk-yellow.png",
     "export/01-01. Introduction/plugin/chalkboard/img/sponge.png",
