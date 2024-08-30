@@ -1,0 +1,231 @@
+## Introduction
+
+The standards given here specify the manner in which programming projects are to be completed. They are not necessarily the best or only way to do things, but they are the specifications under which you will be working. The standards set forth in this guideline should be followed closely as grading will be based on compliance with them.
+
+## Design
+
+Programs should be developed using a top-down design approach. A moderate amount of thought and work each day will produce meaningful and useful debug and checkout information. Start with a high-level, English-like pseudocode in order to avoid becoming too concerned with dealing with too much detail too soon. This reduces the probability of overlooking important considerations that would cause one to have to redesign and rewrite code.
+
+## Modularity
+
+Each function shall utilize "structured programming" techniques and so be modular in nature. This means in part that no unstructured elements (e.g. `goto`, `continue`, `exit`, etc.) are to be used. Each function shall have one entry point and one exit point; in particular, there should only be a single return point in a function, and it should be at the bottom. The main function should be treated in the same manner as any other function. Each function should be dedicated to performing a particular task and be named accordingly. Consequently, functions will be relatively small, consisting of as little as one or two lines but no more than one screen of program code. Global references to identifiers are generally to be avoided.
+
+## User-Orientation
+
+The format of the input data should be specified in the commenting of the program. Output should be clearly labeled and readable; it should also be arranged for eye-appeal using appropriate headings and alignments. A message should be written at the beginning of a program’s execution stating the name of the programmer, the assignment number, and a brief description of the program. A message should also be written at the end of a program’s execution indicating that a normal termination has taken place.
+
+## Documentation
+
+1. **Each file** in a project shall contain the following comment block (at a minimum):  
+    _Note: example assumes a file called sourcefile.cpp. Update information to reflect actual file._
+```c++ 
+//***** sourcefile.cpp *********************************************************
+//
+// Programmer: your name
+//
+// Description: general comments about what this file contains, and how it is 
+//              intended to be used
+//
+// Place any additional information you find relevant in this location.
+//
+//******************************************************************************
+```
+
+1. **Each function** should contain the following three types of documentation:
+    1. **Prologue:** This should include the purpose and a brief description of how to use the function. It should specify any input and output external to the program. It should also specify data flow into and out of the function both by way of the parameter list and return statement. These descriptions should be addressed to a user who wants to use the function but not read the code. The following format should be used:
+```c++     
+// function_name
+//
+// description: purpose & how-to-use comments
+//
+// input: if the function is using input external to the program, include this  
+//        section explaining what input is needed
+//
+// output: if the function produces external output, include this section 
+//         explaining what output is produced
+// 
+// parameters: list each parameter's name and a description of what it is used
+//             for here
+// 
+// returns: if the function returns a value, explain what the value is and how
+//          it might be used here
+```
+        
+1. **Definitions of Variables:** When an identifier is introduced in a function, its purpose should be explained in a comment immediately to the right of its introduction. Ideally, identifiers are introduced immediately prior to their first necessary use.
+    3. **Interspersed Comments:** Every logical step of the function should be documented to explain the purpose of the step with respect to the algorithm performed by the function. Some logical steps will require only one line of program code, while others will consist of several statements. The commenting for a logical step should precede the step.
+2. **The file containing function `main`** (or other start of execution) should contain the following comment block:
+    
+    //******************************************************************************
+    //
+    // Computer Science nnnn
+    //
+    // Fall/Spring yyyy
+    //
+    // Assignment # nn
+    //
+    // Due Date: e.g., Wednesday, June 30
+    //
+    // Instructor: faculty name
+    //
+    // Programmer: your name
+    //
+    // Description: general comments about use of program
+    //
+    // Input: format of keyboard input or files
+    //
+    // Output: format of results generated by program
+    //
+    //******************************************************************************
+    
+4. Follow every else with a comment indicating the negation of the corresponding if; this will serve to check your thinking with respect to the condition used; see below.
+5. Follow every right brace `}` with a comment indicating the end of the compound statement. For compound statements of more than two or three lines, it may be even clearer to describe the condition of the `if`, `while`, `for`, etc. that contains the compound statement; this would be particularly true for the right brace `}` ending a function body. See below.
+6. Avoid repetition in comments; say something the program code does not. For example,
+    
+    balance = balance + credit; // make deposit to account
+    
+    is preferable to
+    
+    balance = balance + credit; // add balance and credit
+    
+
+## Readability
+
+1. Indentation of code should indicate the control structure of the program. In particular, the contents of a compound statement should be indented as shown below. Once an indentation style is adopted, it should be used consistently throughout the program. The following are some examples of acceptable indentation; note the placement of comments.
+    
+    if (a > b)
+        cout << "sufficient quantity on hand";
+    else // a <= b
+        cout << "place order immediately";
+    
+    if (c > 0)
+    {
+        a = b + c;
+        j++;
+    } // end if
+    
+    x = 1;
+    while (error > 0.01)
+    {
+        y = sqrt (x);
+        error = f(x) + g(y) - 7;
+        x = x + 10;
+    } // end while error is too large
+    
+    // naive bubblesort for "list"
+    for (int i = 0; i <= list_size - 2; i++) // each list[i] becomes next smallest
+        // (last item in place by default)
+        for (int j = i+1; j <= list_size-1; j++) // begin search immediately following i
+            if (list[j+1] < list[j]) // found something smaller
+            {
+                int temporary = list[j]; // swap list[j] with list[j+1]
+                list[j] = list[j+1];
+                list[j+1] = temporary;
+            } // end if
+    
+2. Use blanks liberally to make code more easily readable. For example, the expression `a = b*c + d/e` is preferable to `a=b*c+d/e`.
+3. The above comment blocks contain a line of asterisks (*) with the last asterisk located in the 80th character column. A width of 80 is still an industry standard. Your code should not exceed 80 characters per line.
+4. If a statement is too long for the current line, continue writing the statement on the next line, but at an indentation level which reﬂects the context of the indentation. If still not enough space is available, continue to the next line at an appropriate indentation level until the statement is completed. As an exaggerated example,
+    
+    a = variableB*variableC
+        - variableD*variableE*(6.31245/(b - d * pi + pressure))
+        - volume_of_gas/length_of_side + rate*time - e;
+    
+5. Variable names should be meaningful. Variable names such as `a`, `b`, and `c` are not acceptable when names such as `mass`, `velocity`, and `currentBalance` describe more accurately the intended meaning associated with the variable.
+6. Declaration of variables should be in an eye-appealing format.
+
+## Coding Rules
+
+1. Use constants for those values which will not change throughout the execution of the program. Examples might include `taxRate`, `commission`, etc.
+2. The use of `goto` and `continue` is not allowed; `break` should be used only within a `switch` statement and `return` should only appear once within a function, at the bottom.
+3. Tricky code should be avoided in favor of readable, straight-forward code; try to imagine how it will read to you after several months have passed without looking at it.
+4. No more than one statement should be placed on a line.
+5. Do not make an equality comparison such as
+    
+    a == b
+    
+    upon variables of a ﬂoating point data type; instead, use a tolerance test such as
+    
+    fabs (a - b) < 0.0001
+    
+6. Avoid using the digit zero '`0`' in a variable name as it is easily confused with the letter '`O`'.
+7. Avoid the use of global variables.
+
+## Breakdown of 25-Point Credit to Be Assigned to Programs
+
+Below is an example grading rubric. Your instructor may be using this rubric (Causey2011) or an alternative. A list of rubrics in use by our department is available at [Computer Science Department Rubrics](https://wiki.cs.astate.edu/index.php/Computer_Science_Department_Rubrics "Computer Science Department Rubrics").
+
+### Instructions
+
+The rubric below defines several programming code assessment categories. Each category contains criteria related to an assessment score in the range of 0-5, with a description of the meaning of that score. The descriptions may include several independent criteria; if so, each is considered sufficient to select a particular point assessment. It is not necessary that all criteria be met to receive a particular assessment. Independent criteria will be separated by periods, dependent criteria will be separated by semicolons. Not every category will be appropriate for every programming assignment, so individual assignments may not be assessed in one or more category; categories may also be independently weighted to provide emphasis on featured skills in an assignment. Information about category weighting should be made available along with other assessment feedback.
+
+### Program Correctness Criteria
+
+#### [O] Output Correctness
+
+|   |   |
+|---|---|
+|+5|**Correct:** Expected output is produced for all test cases.|
+|+4|A **single error** or very minor errors in expected output.|
+|+3|**Few errors** in expected output.|
+|+2|**Many errors** in expected output.|
+|+1|Output is only correct in special or **single case**.|
+|+0|No output, **completely incorrect** output, or did not compile.|
+
+#### [C] Code/Algorithm Correctness
+
+|   |   |
+|---|---|
+|+5|Algorithm is functionally **correct**; no logic errors for test conditions.|
+|+4|A **single error** or very minor errors in code/algorithm, may or may not have affected test cases.|
+|+3|**Few errors** in code/algorithm, affecting one or more test cases.|
+|+2|**Many errors** in code/algorithm, affecting most test cases.|
+|+1|Code/algorithm is only correct in special or **single case**.|
+|+0|Did not compile or **completely incorrect functionality**, logic, or algorithm. Program does not demonstrate a solution to the problem as assigned.|
+
+#### [T] Testing Rigor
+
+|   |   |
+|---|---|
+|+5|Tests are **thorough** and exercise all boundary conditions; testing provides positive assurance that no algorithm or logic errors are present.|
+|+4|A **single** or very minor omissions in test conditions; testing is sufficient for all likely states of the algorithm.|
+|+3|**Few omissions** in test conditions, omitting one or more likely states of the algorithm. Some boundary conditions not checked.|
+|+2|Tests **omit many possible conditions**. Many redundant tests examine the same conditions with no contribution to algorithm quality. No thought given to boundary conditions.|
+|+1|Testing only provides assurances for the most common or "**perfect world**" states of the algorithm.|
+|+0|**No testing** code was provided, or tests were inadequate to provide any assurance of correctness, or did not compile.|
+
+### User Interface Criteria
+
+#### [Q] Output Quality
+
+|   |   |
+|---|---|
+|+5|**Excellent** output format; very visually compelling; exceeds output requirements.|
+|+4|**Good** output format; somewhat visually compelling; meets output requirements.|
+|+3|**Mostly correct** output format; not visually compelling.|
+|+2|**Some errors** in output format; fails to meet requirements.|
+|+1|**Significant errors** in output format; items are hard to identify.|
+|+0|Output items **lack all formatting** and cannot be identified, or did not compile.|
+
+### Code Quality Criteria
+
+#### [S] Coding Style
+
+|   |   |
+|---|---|
+|+5|**All** identifiers are descriptive and follow naming conventions; style and punctuation guidelines are observed; simple and elegant program constructs; program layout, indentation, and separation are consistent and attractive; source code is highly readable; no required functionality is omitted or left as a stub.|
+|+4|Naming, style, and punctuation are **mostly correct** and consistent, but occasional errors are found; program constructs are appropriate; program layout, indentation, and separation are generally consistent; Exceptions do not affect readability; no or a negligible amount of required functionality is omitted or left as a stub.|
+|+3|Naming, style, and punctuation are **generally correct** and consistent, but several errors are found. Program constructs are appropriate but could have been simplified. Program layout and indentation are acceptable, though inconsistencies affect readability. Few procedures are stubs lacking required functional code.|
+|+2|Inconsistent punctuation and naming of identifiers make code **difficult to follow**. Program constructs are inappropriate. Program layout and spacing are generally inconsistent and affect source code readability significantly. Some procedures are stubs lacking significant functional code.|
+|+1|Naming, style, and punctuation **guidelines are generally ignored**. Program constructs are unnecessarily complex. Minimal attention is given to layout, indentation, and separation. Horizontal and vertical spacing are mostly nonexistent. Selections of code are very difficult to read. Many procedures may be stubs lacking functional code.|
+|+0|Naming is inconsistent and **misleading**. No punctuation guidelines are observed. Program constructs are excessively complex, requiring significant effort to comprehend. No considerations are given to layout, indentation, and separation. Program is unreadable. Functional code is nonexistent, or only shell code is provided; not enough functional code to judge style criteria.|
+
+#### [D] Documentation
+
+|   |   |
+|---|---|
+|+5|Documentation is **exemplary** and provides accurate information at an appropriate level of details; all required elements are present and follow the prescribed format; new information is added by the in-code comments.|
+|+4|Documentation is correct and mostly **complete but not compelling**. While the prescribed format is used, details may be lacking in some instances. Some in-code comments may not add new information.|
+|+3|Documentation follows the prescribed format but includes needed elements at a level that is too general; **details are lacking** in some instances. In-code comments may be somewhat sparse or fail to provide new information.|
+|+2|Documentation is acceptable but **ignores the prescribed format** and may lack one or more required items. Difficult sections of code **lack comments**. Missing functional code severely reduces the available in-code documentation that can be judged.|
+|+1|Documentation is **minimal** and uses an incorrect format. Few, if any, in-code comments are given; those that are present rarely impart new information. Not enough functional code to judge in-code documentation.|
+|+0|The source code contains **no documentation**.|
